@@ -25,7 +25,7 @@ body{
 }
 
 .cabecalho{
-    background-color: rgb(252, 137, 137);
+    background-color: rgb(252, 137, 137);;
     display: flex;
     /*Por quê o align-content não funciona?*/
     justify-content: space-between;
@@ -67,11 +67,6 @@ body{
     color: rgb(65, 65, 65);
 }
 
-.top-right div a:hover{
-    background-color: white; 
-    transition: all ease 0.5s; 
-}
-
 .navegacao{
     height: 35px;
     width: auto;
@@ -95,6 +90,11 @@ body{
     font-size: 14px;
     text-decoration: none;
     color:gray;
+}
+
+.text-nav ul li a:hover{
+    transition: all ease 1s;
+    color: white;
 }
 
 .text-nav ul span{
@@ -147,9 +147,9 @@ body{
 }
 
 .master article img{
-    width: 80px;
+    width: 100px;
     height: 100px;
-    padding-left: 25px;
+    text-justify: center;
 }
 
 .master article h3{
@@ -254,7 +254,7 @@ body{
 .better-pokemons ol li span{
     font-size: 30px;
     font-weight: 900;
-    padding-right: 15px;
+    padding-right: 10px;
 }
 
 .better-pokemons ol li img{
@@ -354,7 +354,7 @@ body{
     font-size: 30px;
     font-weight: 900;
     color: white;
-    padding-right: 15px;
+    padding-right: 10px;
 }
 
 .rodape-left-right ol li img{
@@ -399,15 +399,30 @@ body{
             "footer"
     }
 
+    .cabecalho{
+        padding: 0 20px;
+    }
+
+    .navegacao{
+        padding: 0 60px;
+    }
+
     .master{
         grid-area: container;
-        margin: 0 50px;
+        margin: 0 
     }
 
     .asidenav{
         grid-area: sidenav;
-        margin: 0 50px;
+        margin: 0;
     }
 
+    .image-aside h2{
+        font-size: 60px;
+    }
+    
+    .image-aside p{
+        font-size: 12px;
+    }
     
 }
