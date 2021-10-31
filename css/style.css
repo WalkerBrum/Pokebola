@@ -1,18 +1,18 @@
-* {
-    font-family: "Helvetica Neue","Helvetica Neue LT Pro",Helvetica,Arial,sans-serif;
-    font-size: 1rem;  
+* { 
+    box-sizing: border-box;  
 }
 
 body{
     margin: 0;
     padding: 0;
+    font-family: "Helvetica Neue","Helvetica Neue LT Pro",Helvetica,Arial,sans-serif;    
 }
 
 .grid{
     display: grid;
     width: 100%;
-    grid-template-columns: 35% 35% 30%;
-    background-color: rgb(225, 225, 225);
+    grid-template-columns: 34% 34% 32%;
+    background-color: #e7e7e7;
     grid-template-rows: auto auto auto;
     grid-template-areas: 
         "header header header"
@@ -27,20 +27,12 @@ body{
 .cabecalho{
     background-color: rgb(252, 137, 137);;
     display: flex;
-    /*Por quê o align-content não funciona?*/
     justify-content: space-between;
     align-items: center;
-    padding: 0 150px;
-    /*Por quê width 100% está quebrando o layout*/
     width: auto;
-    height: 35px;
-}
-
-.top-left h1{
-    /*Por quê puxa um valor para margin?*/
-    margin: 0;
-    font-size: 22px;
-    font-weight: 800;
+    height: 50px;
+    padding: 0 125px;
+    box-sizing: border-box;
 }
 
 .top-left {
@@ -50,56 +42,84 @@ body{
     gap: 25px;
 }
 
-.formulario input{
-    width: 200px;
+.top-left h1{
+    margin: 0;
+    font-size: 30px;
+    font-weight: 900;
 }
 
+.top-left form{
+    position: relative;
+}
 
-.top-right{
-    display: flex;  
-    gap: 15px;
-    justify-content: left;
+.top-left input{
+    padding: 8px 15px;
+    width: 180px;
+    border: 0;
+    border-radius: 6px;
+    /*Aumentar barra de pesquisa de forma mais suave*/
+    transition: width 0.2s ease-in;   
+}
+
+.top-left span{
+    position: absolute;
+    right: 7px;
+    top: 8px;
+}
+
+/*Aumentar barra de pesquisa e colocar borda ao clicar*/
+.top-left input:focus{
+    width: 240px;
+    outline: 3px solid #701534;
+}
+
+header .cabecalho .top-right{
+    display: flex; 
     align-items: center;
+    text-transform: uppercase;
+    list-style-type: none; 
+    gap: 15px;    
 }
 
-.top-right div a{
-    text-decoration: none;
+header .cabecalho .top-right a{
     color: rgb(65, 65, 65);
+    font-weight: bolder;
+    text-decoration: none;
+    transition: all ease 0.2s;
+}
+
+header .cabecalho .top-right a:hover{
+    color: white;
 }
 
 .navegacao{
-    height: 35px;
-    width: auto;
+    height: 40px;
     background-color: black;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 12px;  
-    padding: 0 150px;
+    padding: 0 125px;
 }
 
 .text-nav ul{
     list-style-type: none;
     display: flex;
-    /*Por quê preciso zerar o padding?*/
     padding: 0;
     gap: 10px;  
 }
 
-.text-nav ul li a{
-    font-size: 14px;
+.text-nav a{
     text-decoration: none;
     color:gray;
 }
 
-.text-nav ul li a:hover{
+.text-nav li a:hover{
     transition: all ease 1s;
     color: white;
 }
 
-.text-nav ul span{
+.text-nav span{
     border-right: solid 1px gray;
-    padding-left: 5px;
     padding-right: 4px;
 }
 
@@ -110,18 +130,15 @@ body{
     gap: 10px;
 }
 
-.icone-nav ul li a{
+.icone-nav a{
     text-decoration: none;
     color: white;
+    transition: all ease-in 0.2s;
 }
 
-/*.master{
-    grid-area: container;
-    background-color: rgb(225, 225, 225);
-    width: auto;
-    display: flex;
-    padding: 0 150px;
-}*/
+.icone-nav a:hover{
+    color: violet;
+}
 
 .master{
     grid-area: container;
@@ -129,14 +146,14 @@ body{
     width: auto;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
     background-color: white;
+    gap: 30px;
     padding: 20px;
-    margin-left: 150px;
+    margin-left: 125px;
 }
 
 .master article{
-    border: solid 1px gray;
+    border: solid 1px rgba(128, 128, 128, 0.363);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -144,6 +161,11 @@ body{
     gap: 5px;
     width: 150px;
     height: 230px;
+}
+
+.master article:hover{
+    background-color: rgba(219, 219, 219, 0.644);
+    transition: all ease-in 0.8s
 }
 
 .master article img{
@@ -172,21 +194,37 @@ body{
     margin: 0;
 }
 
-.master article button{
-    background: url(https://www.lojapokemon.com.br/skin/frontend/lojapokemon/lojapokemon/images/pokebola.png) 6px 7px no-repeat #eb1c23;
+.master article div{
+    display: flex;
+    justify-content: center;
     color: #fff;
-    border: none;
+    background-color: #eb1c23;
     width: 120px;
     height: 35px;
-    box-shadow: none;
     cursor: pointer;
-    border-radius: 5px;
-    /*border: solid 1px rgb(106, 207, 106);
-    background: rgb(81, 216, 81);
-    color: rgba(255, 255, 255, 0.575);*/
+    border-radius: 6px;
 }
 
-.master article button:hover{
+.master article button{
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    width: 70px;
+    height: 35px;
+    padding: 10px 5px;
+    color: #fff;
+    background-color: #eb1c23;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.master article div img{
+    width: 25px;
+    height: 30px;
+    padding-top: 7px;
+}
+
+.master article div:hover{
     filter: brightness(50%);
     transition: all ease 0.5s;
 }
@@ -197,24 +235,38 @@ body{
     display: flex;
     flex-direction: column;
     padding: 20px;
-    margin-right: 150px;
+    margin-right: 125px;
 }
 
 .image-aside{
-    /*Por quê não consigo colocar width 100%?*/
-    width: auto;
-    height: 170px;
+    height: 200px;
     background-image: url(../images/Mewtwo\ -\ aside.jpg);
+    display: block;
     background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: center;
-    /*Escurecendo imagem*/
-    filter: brightness(50%)
+    background-position: center center;
+    position: relative;
 }
 
-/*Como colocar h2 e p em branco?*/
+/*Escurecer apenas imagem, deixando texto escrito em  outra cor*/
+.image-aside::before {
+    content: " ";
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.6;
+    position: absolute;
+}
+
+aside .image-aside>div {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #FFF;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
 .image-aside h2{
     margin: 0;
     font-size: 35px;
@@ -234,6 +286,8 @@ body{
 
 .better-pokemons h3{
     margin: 0;
+    border-bottom: solid 1px #DDD;
+    padding: 10px 0px;
 }
 
 .better-pokemons ol{
@@ -242,25 +296,44 @@ body{
     margin: 0;
 }
 
-.better-pokemons ol div{
-    border-top: solid 1px rgba(128, 128, 128, 0.274);
-}
-
-.better-pokemons ol li{
+.better-pokemons li{
     font-size: 18px;
-    padding-top: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    /*colocar contador*/
+    counter-increment: li;
+    border-bottom: solid 1px #EEE;
+    cursor: pointer;
+    transition: all ease 0.5s;
 }
 
-.better-pokemons ol li span{
-    font-size: 30px;
-    font-weight: 900;
-    padding-right: 10px;
+.better-pokemons li:hover{
+    background-color: rgb(231, 231, 231);
 }
 
-.better-pokemons ol li img{
+
+.better-pokemons li:last-child{
+    border-bottom: none;
+}
+
+.better-pokemons li::before {
+    /*colocar contador*/
+    content: counter(li) "º";
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 0;
+}
+
+.better-pokemons img{
     width: 40px;
     height: 35px;
-    padding-right: 10px;
+    margin: 0 8px;
+}
+
+.better-pokemons span{
+    font-size: 20px;
+    font-weight: 300;
 }
 
 .cadastro{
@@ -268,13 +341,12 @@ body{
     height: 200px;
     background-color: rgb(225, 225, 225);
     margin-top: 30px;
-    /*Não dá certo
-    padding: 20px;*/
 }
 
-.cadastro h5{
+.cadastro h3{
     text-align: center;
     margin-top: 50px;
+
 }
 
 .cadastro form{
@@ -284,21 +356,37 @@ body{
     margin-bottom: 10px;
 }
 
+.cadastro input{
+    width: 100%;
+    margin: 0 10px;
+    padding: 10px;
+    border: 0;
+    border-radius: 6px;
+}
+
 .cadastro div{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
 }
 
 .cadastro div button{
     cursor: pointer;
+    width: 50%;
+    margin: 0 10px;
+    padding: 7px ;
+    background-color:  #970f14;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bolder;
+    border-radius: 5px;
 }
 
 .rodape{
     grid-area: footer;
     background-color: black;
-    padding: 0 150px;
+    padding: 0 125px;
 }
 
 .part-up{
@@ -312,70 +400,34 @@ body{
     gap: 70px;
 }
 
-.rodape-left div ul{
+.rodape-left ul{
     color: white;
     padding-left: 15px;
 }
 
-.rodape-left div ul li a{
+.rodape-left a:hover{
+    color: white;
+}
+
+.rodape-left a{
     text-decoration: none;
     color: gray;
     font-size: 14px;
 }
 
-.rodape-left-right{
-    color: rgba(255, 255, 255, 0.767);
-}
-
-.rodape-left-right ol{
-    list-style-type: none;
-}
-
-.linha{
-    border-top: solid 1px rgba(128, 128, 128, 0.651);
-}
-
-.rodape-left-right ol{
-    padding: 0;
-    margin: 0;
-}
-
-.rodape-left-right ol div{
-    border-top: 1px solid rgb(128, 128, 128);
-}
-
-
-.rodape-left-right ol li{
-    padding-top: 10px;
-    font-size: 18px;
-}
-
-.rodape-left-right ol li span{
-    font-size: 30px;
-    font-weight: 900;
+footer .part-up .better-pokemons{
+    margin: 10px;
     color: white;
-    padding-right: 10px;
+    width: 100%;
 }
 
-.rodape-left-right ol li img{
-    width: 40px;
-    height: 35px;
-    padding-right: 10px;
+footer .part-up .better-pokemons li{
+    transition: all ease 1s;
 }
 
-.rodape-right ul{
-    display: flex;
-    gap: 10px;
-    justify-content: right;
-    list-style-type: none;
-}
-
-.rodape-right ul li a{
-    color: white;
-}
-
-.rodape-right ul li a i{
-    font-size: 18px;
+footer .part-up .better-pokemons li:hover{
+    background-color: white;
+    color: black;
 }
 
 .part-down p{
@@ -401,10 +453,31 @@ body{
 
     .cabecalho{
         padding: 0 20px;
+        height: 100px;
+    }
+
+    .top-left{
+        display: block;
+    }
+    
+    .top-left form{
+        margin-top: 5px;
+    }
+
+    .top-left input{
+        width: 450px;
+    }
+
+
+    /*Alinhamento*/
+    .top-right{
+        position: absolute;
+        right: 15px;
+        top: 10px;
     }
 
     .navegacao{
-        padding: 0 60px;
+        padding: 0 10px;
     }
 
     .master{
@@ -417,6 +490,10 @@ body{
         margin: 0;
     }
 
+    .cadastro{
+        font-size: 20px;
+    }
+
     .image-aside h2{
         font-size: 60px;
     }
@@ -424,5 +501,29 @@ body{
     .image-aside p{
         font-size: 12px;
     }
+
+    .rodape{
+        grid-area: footer;
+        padding: 20px;
+    }
     
+    .rodape-left{
+        display: block;
+    }
+
+    .rodape-left ul{
+        padding-left: 30px;
+    }
+
+    .rodape-left li{
+        padding-top: 5px;
+    }
+
+    .rodape-left a{
+        font-size: 16px;;
+    }
+
+    .part-up{
+        display: block;
+    }
 }
