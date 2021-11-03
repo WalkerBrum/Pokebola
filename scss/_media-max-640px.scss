@@ -1,0 +1,81 @@
+@media (max-width: 640px){
+
+    .grid{
+        display: block;
+        width: 100%;
+    }
+
+    header {
+        .cabecalho{
+        padding: 0 20px;
+        height: 100px;
+        }
+
+        .top-left{
+            display: block;
+        }
+        
+        .top-left form{
+            margin-top: 5px;
+        }
+
+        .top-left input{
+            width: 450px;
+        }
+
+        /*Alinhamento*/
+        .top-right{
+            position: absolute;
+            right: 15px;
+            top: 10px;
+        }
+
+        .navegacao{
+        padding: 0 10px;
+        }
+    }
+
+    .master{
+        margin: 0 
+    }
+
+    aside{
+        margin: 0;
+
+        .cadastro{
+            font-size: 20px;
+        }
+
+        .image-aside h2{
+            font-size: 60px;
+        }
+        
+        .image-aside p{
+            font-size: 12px;
+        }
+    }
+
+    footer{
+        padding: 20px;
+    
+        .rodape-left{
+            display: block;
+        }
+
+        .rodape-left ul{
+            padding-left: 30px;
+        }
+
+        .rodape-left li{
+            padding-top: 5px;
+        }
+
+        .rodape-left a{
+            font-size: 16px;;
+        }
+
+        .part-up{
+            display: block;
+        }
+    }
+}

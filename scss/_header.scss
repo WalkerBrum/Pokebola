@@ -1,0 +1,119 @@
+header{
+    grid-area: header; 
+
+    .cabecalho{
+        background-color: rgb(252, 137, 137);;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: auto;
+        height: 50px;
+        padding: 0 125px;
+        box-sizing: border-box;
+    }
+
+    .top-left {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 25px;
+    }
+    
+    .top-left h1{
+        margin: 0;
+        font-size: 30px;
+        font-weight: 900;
+    }
+    
+    .top-left form{
+        position: relative;
+    }
+    
+    .top-left input{
+        padding: 8px 15px;
+        width: 180px;
+        border: 0;
+        border-radius: 6px;
+        /*Aumentar barra de pesquisa de forma mais suave*/
+        transition: width 0.2s ease-in;   
+    }
+    
+    .top-left span{
+        position: absolute;
+        right: 7px;
+        top: 8px;
+    }
+    
+    /*Aumentar barra de pesquisa e colocar borda ao clicar*/
+    .top-left input:focus{
+        width: 240px;
+        outline: 3px solid #701534;
+    }
+    
+    .cabecalho .top-right{
+        display: flex; 
+        align-items: center;
+        text-transform: uppercase;
+        list-style-type: none; 
+        gap: 15px;    
+    }
+    
+    .cabecalho .top-right a{
+        color: rgb(65, 65, 65);
+        font-weight: bolder;
+        text-decoration: none;
+        transition: all ease 0.2s;
+    }
+    
+    .cabecalho .top-right a:hover{
+        color: white;
+    }
+    
+    .navegacao{
+        height: 40px;
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 125px;
+    }
+    
+    .text-nav ul{
+        list-style-type: none;
+        display: flex;
+        padding: 0;
+        gap: 10px;  
+    }
+    
+    .text-nav a{
+        text-decoration: none;
+        color:gray;
+    }
+    
+    .text-nav li a:hover{
+        transition: all ease 1s;
+        color: white;
+    }
+    
+    .text-nav span{
+        border-right: solid 1px gray;
+        padding-right: 4px;
+    }
+}
+
+.icone-nav ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    gap: 10px;
+}
+
+.icone-nav a{
+    text-decoration: none;
+    color: white;
+    transition: all ease-in 0.2s;
+}
+
+.icone-nav a:hover{
+    color: violet;
+}

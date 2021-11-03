@@ -1,0 +1,53 @@
+footer{
+    grid-area: footer;
+    background-color: black;
+    padding: 0 125px;
+
+    .part-up{
+        display: flex;
+        justify-content: space-between;
+        gap: 50px;
+    }
+    
+    .rodape-left{
+        display: flex;
+        gap: 70px;
+    }
+    
+    .rodape-left ul{
+        color: white;
+        padding-left: 15px;
+    }
+    
+    .rodape-left a:hover{
+        color: white;
+    }
+    
+    .rodape-left a{
+        text-decoration: none;
+        color: gray;
+        font-size: 14px;
+    }
+    
+    .part-up .better-pokemons{
+        margin: 10px;
+        color: white;
+        width: 100%;
+    }
+    
+    .part-up .better-pokemons li{
+        transition: all ease 1s;
+    }
+    
+    .part-up .better-pokemons li:hover{
+        background-color: white;
+        color: black;
+    }
+    
+    .part-down p{
+        color: gray;
+        font-size: 14px;
+        text-align: center;
+        margin: 40px;
+    }
+}

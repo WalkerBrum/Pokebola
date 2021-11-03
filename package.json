@@ -1,0 +1,23 @@
+{
+  "name": "pokeloja",
+  "version": "1.0.0",
+  "description": "Awari Pokeloja",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "sass --watch scss:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WalkerBrum/Pokeloja.git"
+  },
+  "author": "Walker Brum Lobato Filho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WalkerBrum/Pokeloja/issues"
+  },
+  "homepage": "https://github.com/WalkerBrum/Pokeloja#readme",
+  "dependencies": {
+    "sass": "^1.43.4"
+  }
+}
