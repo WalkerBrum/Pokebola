@@ -151,3 +151,22 @@ aside{
     font-size: 20px;
     font-weight: 300;
 }
+
+@media (max-width: 640px){
+
+    aside{
+        margin: 0;
+
+        .cadastro{
+            font-size: 20px;
+        }
+
+        .image-aside h2{
+            font-size: 60px;
+        }
+        
+        .image-aside p{
+            font-size: 12px;
+        }
+    }
+}

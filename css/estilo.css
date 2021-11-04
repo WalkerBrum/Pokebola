@@ -104,6 +104,32 @@ header .text-nav span {
   color: violet;
 }
 
+@media (max-width: 640px) {
+  header {
+    /*Alinhamento*/
+  }
+  header .cabecalho {
+    padding: 0 20px;
+    height: 100px;
+  }
+  header .top-left {
+    display: block;
+  }
+  header .top-left form {
+    margin-top: 5px;
+  }
+  header .top-left input {
+    width: 450px;
+  }
+  header .top-right {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+  }
+  header .navegacao {
+    padding: 0 10px;
+  }
+}
 main {
   grid-area: container;
   display: fleX;
@@ -182,6 +208,11 @@ main article div:hover {
   transition: all ease 0.5s;
 }
 
+@media (max-width: 640px) {
+  main {
+    margin: 0;
+  }
+}
 aside {
   grid-area: sidenav;
   background-color: white;
@@ -323,6 +354,20 @@ aside .cadastro div button {
   font-weight: 300;
 }
 
+@media (max-width: 640px) {
+  aside {
+    margin: 0;
+  }
+  aside .cadastro {
+    font-size: 20px;
+  }
+  aside .image-aside h2 {
+    font-size: 60px;
+  }
+  aside .image-aside p {
+    font-size: 12px;
+  }
+}
 footer {
   grid-area: footer;
   background-color: black;
@@ -369,53 +414,6 @@ footer .part-down p {
 }
 
 @media (max-width: 640px) {
-  .grid {
-    display: block;
-    width: 100%;
-  }
-
-  header {
-    /*Alinhamento*/
-  }
-  header .cabecalho {
-    padding: 0 20px;
-    height: 100px;
-  }
-  header .top-left {
-    display: block;
-  }
-  header .top-left form {
-    margin-top: 5px;
-  }
-  header .top-left input {
-    width: 450px;
-  }
-  header .top-right {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-  }
-  header .navegacao {
-    padding: 0 10px;
-  }
-
-  .master {
-    margin: 0;
-  }
-
-  aside {
-    margin: 0;
-  }
-  aside .cadastro {
-    font-size: 20px;
-  }
-  aside .image-aside h2 {
-    font-size: 60px;
-  }
-  aside .image-aside p {
-    font-size: 12px;
-  }
-
   footer {
     padding: 20px;
   }
@@ -452,6 +450,13 @@ body, html {
   background-color: #e7e7e7;
   grid-template-rows: auto auto auto;
   grid-template-areas: "header header header" "container container sidenav" "footer footer footer";
+}
+
+@media (max-width: 640px) {
+  .grid {
+    display: block;
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=estilo.css.map */

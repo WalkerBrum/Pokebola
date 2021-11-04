@@ -2,7 +2,6 @@
 @use 'main';
 @use 'aside';
 @use 'footer';
-@use '_media-max-640px';
 
 * { 
     box-sizing: border-box;  
@@ -26,3 +25,10 @@ body, html{
         "footer footer footer"
 }
 
+@media (max-width: 640px){
+
+    .grid{
+        display: block;
+        width: 100%;
+    }
+}

@@ -51,3 +51,30 @@ footer{
         margin: 40px;
     }
 }
+
+@media (max-width: 640px){
+
+    footer{
+        padding: 20px;
+
+        .rodape-left{
+            display: block;
+        }
+    
+        .rodape-left ul{
+            padding-left: 30px;
+        }
+    
+        .rodape-left li{
+            padding-top: 5px;
+        }
+    
+        .rodape-left a{
+            font-size: 16px;;
+        }
+    
+        .part-up{
+            display: block;
+        }
+    }
+}

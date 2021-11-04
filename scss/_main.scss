@@ -86,3 +86,9 @@ main{
         transition: all ease 0.5s;
     }
 }
+
+@media (max-width: 640px){
+    main{
+        margin: 0;
+    }
+}
