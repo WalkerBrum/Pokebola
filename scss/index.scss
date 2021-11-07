@@ -1,7 +1,7 @@
-@use 'header';
+@use 'common/header';
 @use 'main';
-@use 'aside';
-@use 'footer';
+@use 'common/aside';
+@use 'common/footer';
 
 * { 
     box-sizing: border-box;  
