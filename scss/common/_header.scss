@@ -5,11 +5,9 @@ header{
         background-color: rgb(252, 137, 137);;
         display: flex;
         justify-content: space-between;
-        align-items: center;
         width: auto;
         height: 50px;
         padding: 0 125px;
-        box-sizing: border-box;
     }
 
     .top-left {
@@ -125,13 +123,13 @@ header{
     header{
         .cabecalho{
             padding: 0 20px;
-            height: 100px;
+            height: 85px;
         }
 
         .top-left{
             display: block;
         }
-        
+    
         .top-left form{
             margin-top: 5px;
         }
@@ -140,7 +138,7 @@ header{
         .top-right{
             position: absolute;
             right: 15px;
-            top: 10px;
+            top: 0;
         }
 
         .navegacao{
@@ -153,15 +151,25 @@ header{
     header{
         .cabecalho{
             padding: 0 10px;
-            height: 100px;
+            position: relative;
         }
 
         .cabecalho .top-right{
-            gap: 10px
+            gap: 10px;
         }
 
         .icone-nav{
-            display: none;
+            position: absolute;
+            top: 40px;
+            right: 30px;
+        }
+
+        .icone-nav a{
+            color: black;
+        }
+
+        .icone-nav a:hover{
+            color: white;
         }
     }
 }
