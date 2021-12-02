@@ -128,10 +128,20 @@ header{
 
         .top-left{
             display: block;
+            width: 100%;
         }
     
         .top-left form{
             margin-top: 5px;
+        }
+
+        .top-left input{
+            width: 100%;
+        }
+
+        .top-left input:focus{
+            width: 100%;
+            outline: 3px solid #701534;
         }
 
         /*Alinhamento*/
