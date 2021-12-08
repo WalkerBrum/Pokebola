@@ -28,21 +28,31 @@ class Pokemon {
     }
 }
 
+let page = 0;
+
+// Selecionando aa classes que serão modificada
+const pokeList = document.querySelector('.poke-list');
+const lastPage = document.querySelector(".last-page");
+const nextPage = document.querySelector(".next-page");
+const numPage = document.querySelector(".num-page");
+
 // Consumindo API
 async function getPokemons(page = 0) {
+
+    // Mensagem enquanto carrega a página
+    pokeList.innerHTML = '<div>Carregando Pokémons</div>';
+
     const limite = 20;
     const response =  await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limite}&offset=${limite * page}`);
     const json = await response.json();
+
     paginas = Math.ceil(json.count / limite);
+
     return json;
 }
     
-let page = 0;
-
 const listaPokemons = (pokemonsApi) => {
-    // Selecionando a class que será modificada
-    const pokeList = document.querySelector('.poke-list');
-    
+        
     //Limpando a lista de pokemons a cada consulta
     pokeList.innerHTML = "";
 
@@ -54,7 +64,7 @@ const listaPokemons = (pokemonsApi) => {
         const html = pokemon.html();
         pokeList.appendChild(html);
     });
-        
+
     // Executando função para tirara a opção Página Anterior na paginação da primeira página
     temAnteriorPage(page);
 
@@ -62,48 +72,57 @@ const listaPokemons = (pokemonsApi) => {
     temProximaPage(page)
 
     // Executando função para trocar de página
-    mudarPage();
+    mudarPage(); 
     
+    countPage();
 }
 
 function temAnteriorPage(page) {
-    // const lastPage = document.querySelector('.last-page');
+
     if (page === 0) {
-        document.querySelector(".last-page").style.visibility = "hidden";
+        lastPage.style.visibility = "hidden";
     } else {
-        document.querySelector(".last-page").style.visibility = "visible";
+        lastPage.style.visibility = "visible";
     } 
 }
 
 function temProximaPage(page) {
-    // const lastPage = document.querySelector('.last-page');
+
     if (page === (paginas - 1)) {
-        document.querySelector(".next-page").style.visibility = "hidden";
+        nextPage.style.visibility = "hidden";
     } else {
-        document.querySelector(".next-page").style.visibility = "visible";
+        nextPage.style.visibility = "visible";
     }
 }
 
 function mudarPage() {
-    document.querySelector(".next-page").onclick = async () => {
+    
+    nextPage.onclick = async () => {
 
         // A cada clique irá fazer uma consulta na API, pulando para próxima página com 20 novos pokémons 
         const response = await getPokemons(page += 1);
         listaPokemons(response.results);
     }
-    document.querySelector(".last-page").onclick = async () => {
+
+    lastPage.onclick = async () => {
 
         // A cada clique irá fazer uma consulta na API, voltando para a página dos 20 anteriores pokémons
         const response = await getPokemons(page -= 1);
         listaPokemons(response.results);
     }
 }
+ const countPage = () => {
+    numPage.innerHTML = `${page+1}/${paginas}`;
+ }
+
 // Executa quando a página termina de carregar
 window.onload = async () => {
+
     // Executando função que chama API
     const response = await getPokemons(page);
 
     // Executando função que passa por cada pokemon
     listaPokemons(response.results);
+
 }
 

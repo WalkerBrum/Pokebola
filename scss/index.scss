@@ -1,6 +1,7 @@
 @use 'common/header';
 @use 'common/aside';
 @use 'common/footer';
+@use 'common/carrinho';
 
 * { 
     box-sizing: border-box;  
@@ -127,6 +128,12 @@ main{
         cursor: pointer;
         font-size: 16px;
         font-weight: bold;
+        }
+
+        .num-page{
+            padding: 5px;
+            font-size: 20px;
+            font-weight: bold;
         }
     }
 }
