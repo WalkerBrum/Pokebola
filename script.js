@@ -29,12 +29,15 @@ class Pokemon {
 }
 
 let page = 0;
+let paginas = 0;
 
 // Selecionando aa classes que serão modificada
-const pokeList = document.querySelector('.poke-list');
+const pokeList = document.querySelector(".poke-list");
 const lastPage = document.querySelector(".last-page");
 const nextPage = document.querySelector(".next-page");
 const numPage = document.querySelector(".num-page");
+const openCar = document.querySelector("#abrir-carrinho");
+const closeCar = document.querySelector("#fechar-carrinho");
 
 // Consumindo API
 async function getPokemons(page = 0) {
@@ -111,8 +114,44 @@ function mudarPage() {
         listaPokemons(response.results);
     }
 }
+
+// Função para númerar a página
  const countPage = () => {
     numPage.innerHTML = `${page+1}/${paginas}`;
+ }
+
+ // Função para abrir carrinho
+ const abrirCarrinho = () => {
+     openCar.addEventListener('click', function(event) {
+
+         // Evita qualquer comportamento padrão do link
+         event.preventDefault();
+        
+         // Adicionando uma class no body
+         document.body.className = "carrinho-aberto";
+     })
+ }
+
+ // Função para fechar carrinho
+ const fecharCarrinho = () => {
+    closeCar.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        document.body.className = '';
+     }) 
+    
+     // Fechando carrinho quando apertar Esc
+    document.addEventListener('keydown', function(event) {
+        event.preventDefault();
+
+        // Colocando valor da tecla em uma variável
+        const tecla = event.keyCode;
+        
+        if (tecla === 27) {
+            document.body.className = '';
+        }
+    
+    }) 
  }
 
 // Executa quando a página termina de carregar
@@ -123,6 +162,12 @@ window.onload = async () => {
 
     // Executando função que passa por cada pokemon
     listaPokemons(response.results);
+
+    // Executando a função para abrir o carrinho
+    abrirCarrinho();
+
+    // Executando a função para fechar o carrinho
+    fecharCarrinho();
 
 }
 

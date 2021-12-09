@@ -1,22 +1,29 @@
-div{
-    .carrinho {
-        display: flex;
-        position: fixed;
-        background-color: white;
-        padding: 10px 20px;
-        width: 250px;
-        height: 500px;
-        justify-content: space-between;
-        align-items: flex-start;
-        box-shadow: 1px 10px 21px -5px rgba(148,148,148,0.75);
-        border-radius: 10px 0 0 10px;
+body.carrinho-aberto{
+    .carrinho{
         right: 0;
-        top: 0;
+        box-shadow: -4px 5px 12px 2px rgba(0, 0, 0, 0.62);
     }
 
-       h3{
-           cursor: pointer;
-           font-size: 16px;
-           font-weight: bold;
-       } 
 }
+
+.carrinho {
+    display: flex;
+    position: fixed;
+    background-color: white;
+    padding: 5px 20px;
+    width: 400px;
+    height: 100vh; // Para colocar o comprimento 100%
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: all ease-in 1s;
+    border-radius: 10px 0 0 10px;
+    border: solid 1px #CCC;
+    right: -400px;
+    top: 0;
+}
+
+    h3{
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+    } 
