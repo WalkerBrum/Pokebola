@@ -10,8 +10,10 @@ class Pokemon {
     html () {
         // Criar um elemento
         const pokeArticle = document.createElement('article');
+
         // Selecionar a classe
-        pokeArticle.className = 'poke'
+        pokeArticle.className = 'poke';
+
         // Tample string para substituir informações
         pokeArticle.innerHTML = `
             <img 
@@ -19,7 +21,7 @@ class Pokemon {
             <h3>${this.nome}</h3>
             <p class="old-value"><s></s>De R$ ${this.preco},00</s></p>
             <p class="new-value">R$ ${(this.preco * 0.80).toFixed(2).replace('.', ',')}</p>
-            <div>
+            <div id="buy">
                 <span><img src="images/pokebola.png"></span>
                 <button>Comprar</button>
             </div>`;
@@ -36,8 +38,6 @@ const pokeList = document.querySelector(".poke-list");
 const lastPage = document.querySelector(".last-page");
 const nextPage = document.querySelector(".next-page");
 const numPage = document.querySelector(".num-page");
-const openCar = document.querySelector("#abrir-carrinho");
-const closeCar = document.querySelector("#fechar-carrinho");
 
 // Consumindo API
 async function getPokemons(page = 0) {
@@ -116,24 +116,46 @@ function mudarPage() {
 }
 
 // Função para númerar a página
- const countPage = () => {
+const countPage = () => {
     numPage.innerHTML = `${page+1}/${paginas}`;
  }
 
+class Carrinho {
+    constructor(nome, url) {
+        this.nome = nome;
+        this.url = url;
+        this.id = this.url.replace('https://pokeapi.co/api/v2/pokemon/', '').replace('/', '');
+        this.imagem = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${this.id}.png`;
+        this.preco = Math.floor(Math.random() * 100 + 101);   
+    }
+}
  // Função para abrir carrinho
- const abrirCarrinho = () => {
-     openCar.addEventListener('click', function(event) {
+const abrirCarrinho = () => {
+    const openCar = document.querySelector("#abrir-carrinho");
 
-         // Evita qualquer comportamento padrão do link
-         event.preventDefault();
+    openCar.addEventListener('click', function(event) {
+
+        // Evita qualquer comportamento padrão do link
+        event.preventDefault();
         
-         // Adicionando uma class no body
-         document.body.className = "carrinho-aberto";
-     })
+        // Adicionando uma class no body
+        document.body.className = "carrinho-aberto";
+    })
+
+    const buy = document.querySelector('#buy');
+
+    buy.addEventListener('click', function(event) {
+
+        event.preventDefault();
+
+        document.body.className = "carrinho-aberto";
+    })
  }
 
- // Função para fechar carrinho
- const fecharCarrinho = () => {
+// Função para fechar carrinho
+const fecharCarrinho = () => {
+    const closeCar = document.querySelector("#fechar-carrinho");
+
     closeCar.addEventListener('click', function(event) {
         event.preventDefault();
 
@@ -150,8 +172,15 @@ function mudarPage() {
         if (tecla === 27) {
             document.body.className = '';
         }
-    
     }) 
+    const continuarComprando = document.querySelector("#continuar-comprando")
+
+    // Fechando carrinho quando clicar botão continuar comprando
+    continuarComprando.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        document.body.className = '';
+    })
  }
 
 // Executa quando a página termina de carregar

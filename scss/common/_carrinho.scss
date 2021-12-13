@@ -1,4 +1,5 @@
 body.carrinho-aberto{
+    
     .carrinho{
         right: 0;
         box-shadow: -4px 5px 12px 2px rgba(0, 0, 0, 0.62);
@@ -6,24 +7,126 @@ body.carrinho-aberto{
 
 }
 
-.carrinho {
-    display: flex;
+section.carrinho {
+    
     position: fixed;
     background-color: white;
-    padding: 5px 20px;
     width: 400px;
     height: 100vh; // Para colocar o comprimento 100%
-    justify-content: space-between;
-    align-items: flex-start;
     transition: all ease-in 1s;
     border-radius: 10px 0 0 10px;
     border: solid 1px #CCC;
     right: -400px;
     top: 0;
-}
 
-    h3{
-        cursor: pointer;
-        font-size: 20px;
-        font-weight: bold;
-    } 
+    .top-car{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        background-color: rgb(252, 137, 137);
+        padding: 0px 20px;
+        
+        div{
+            display: flex;
+            justify-content: space-between;
+
+            img{
+                width: 50px;
+                height: 30px;
+                margin-top: 15px;
+                margin-right: 10px;
+                border-radius: 20px;
+            }
+        }
+
+        h3{
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+        } 
+    }
+
+    .carrinho-center{
+
+        margin: 30px;
+
+        h3{
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .title-car{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-left: 180px;
+            background-color: rgba(233, 233, 233, 0.651);
+            height: 35px;
+            margin-top: 60px;
+
+            h4{
+                font-weight: bold;
+                padding-right: 20px;
+            }
+        }
+
+        .dados-car{
+            display: flex;
+            justify-content: space-between;
+            margin: 5px;
+
+            img{
+                width: 70px;
+                height: 70px;
+            }
+
+            div{
+                display: block;
+                align-items: center;
+
+                p{
+                    text-align: center;
+                    margin-top: 14px;
+                    margin-bottom: 5px;
+                }
+
+                button{
+                    background-color: white;
+                    border: none;
+                    text-decoration: underline;
+                    margin: 0;
+                }
+            }
+
+            p{
+                font-size: 14px;
+            }
+        }
+
+        .down-car{
+           margin: 180px 0px;
+            
+            .total-car{
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+                padding: 5px 0px;
+            }
+                p{
+                    padding-right: 10px;
+                }
+
+                button{
+                    padding: 7px;
+                    border-radius: 5px;
+                    margin-right: 5px;
+                    background-color: #eb1c23;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+        }
+    }
+}

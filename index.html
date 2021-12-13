@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/Pokebola.ico.png" type="image/x-icon">
     <link rel="stylesheet" href="css/index.css">
-    <script src="script.js" defer></script>
+    <script src="JS/script.js" defer></script>
     <title>Pokéloja</title>
 </head>
 <body>
@@ -95,14 +95,14 @@
             <section class="better-pokemons">
                 <h3>TOP POKÉMONS</h3>
                 <ol>
-                    <li> 
+                    <li>
                         <img src="images/Mewtwo.png">
                         <span>Mewtwo</span>
                     </li>
-                    <li> 
+                    <li>
                         <img src="images/Zapdos.png"><span>Zapdos</span>
                     </li>
-                    <li> 
+                    <li>
                         <img src="images/Dragonite.png"> <span>Dragonite</span>
                     </li>
                 </ol>
@@ -177,8 +177,40 @@
             </div>
         </footer>
         <section class="carrinho">
-            <h3>Carrinho</h3>
-            <h3 id='fechar-carrinho'>x</h3>
+            <header class="top-car">
+                <div>
+                    <img src="images/pokebola2.png" alt="Pokebola">
+                    <h3>PokéLoja</h3>
+                </div>
+                <h3 id='fechar-carrinho'>x</h3>
+            </header>
+            <main class="carrinho-center">
+                <h3>Carrinho</h3>
+                <div class="title-car">
+                    <h4>Quantidade</h4>
+                    <h4>Valor</h4>
+                </div>
+                <div class="dados-car">
+                    <img src="images/Pikachu.png" alt="Pikachu">
+                    <h4>Pikachu</h4>
+                    <div>
+                        <p>1</p>
+                        <button>Excluir</button>
+                    </div>
+                    <p>R$ 100,00</p>
+                </div>
+                <div class="down-car">
+                    <div class="total-car">
+                        <p><span>Total</span>(1 item)</p>
+                        <p>R$ 100,00</p>
+                    </div>
+                    <div class="total-car">
+                        <button id="continuar-comprando">Continuar Comprando</button>
+                        <button>Continuar</button>
+                    </div>
+                </div>
+            </main>
+
         </section>
     </div>
     <script src="https://kit.fontawesome.com/7d3f6f7eb7.js" crossorigin="anonymous"></script>
