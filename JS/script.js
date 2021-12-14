@@ -18,7 +18,7 @@ class Pokemon {
         pokeArticle.innerHTML = `
             <img 
                 src="${this.imagem}" alt="${this.nome}">
-            <h3>${this.nome}</h3>
+            <h3 id="name">${this.nome}</h3>
             <p class="old-value"><s></s>De R$ ${this.preco},00</s></p>
             <p class="new-value">R$ ${(this.preco * 0.80).toFixed(2).replace('.', ',')}</p>
             <div id="buy">
@@ -78,6 +78,12 @@ const listaPokemons = (pokemonsApi) => {
     mudarPage(); 
     
     countPage();
+
+    // Executando a função para abrir o carrinho
+    abrirCarrinho();
+
+    // Executando a função para fechar o carrinho
+    fecharCarrinho();
 }
 
 function temAnteriorPage(page) {
@@ -113,6 +119,9 @@ function mudarPage() {
         const response = await getPokemons(page -= 1);
         listaPokemons(response.results);
     }
+
+    // Para voltar ao ínicio da página quando mudar de página
+    window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
 // Função para númerar a página
@@ -120,15 +129,6 @@ const countPage = () => {
     numPage.innerHTML = `${page+1}/${paginas}`;
  }
 
-class Carrinho {
-    constructor(nome, url) {
-        this.nome = nome;
-        this.url = url;
-        this.id = this.url.replace('https://pokeapi.co/api/v2/pokemon/', '').replace('/', '');
-        this.imagem = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${this.id}.png`;
-        this.preco = Math.floor(Math.random() * 100 + 101);   
-    }
-}
  // Função para abrir carrinho
 const abrirCarrinho = () => {
     const openCar = document.querySelector("#abrir-carrinho");
@@ -142,15 +142,19 @@ const abrirCarrinho = () => {
         document.body.className = "carrinho-aberto";
     })
 
-    const buy = document.querySelector('#buy');
+    // Selecionando todas as div que contenha o id buy
+    const buy = document.querySelectorAll('#buy');
 
-    buy.addEventListener('click', function(event) {
-
-        event.preventDefault();
-
-        document.body.className = "carrinho-aberto";
+    // Abrindo carrinho quando clicar no botom comprar
+    buy.forEach((button) => {
+        button.addEventListener('click', function(event) {
+        
+            event.preventDefault();
+        
+            document.body.className = "carrinho-aberto";       
+        });
     })
- }
+}
 
 // Função para fechar carrinho
 const fecharCarrinho = () => {
@@ -173,6 +177,7 @@ const fecharCarrinho = () => {
             document.body.className = '';
         }
     }) 
+
     const continuarComprando = document.querySelector("#continuar-comprando")
 
     // Fechando carrinho quando clicar botão continuar comprando
@@ -191,12 +196,5 @@ window.onload = async () => {
 
     // Executando função que passa por cada pokemon
     listaPokemons(response.results);
-
-    // Executando a função para abrir o carrinho
-    abrirCarrinho();
-
-    // Executando a função para fechar o carrinho
-    fecharCarrinho();
-
 }
 
