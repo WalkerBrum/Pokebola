@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="shortcut icon" href="images/Pokebola.ico.png" type="image/x-icon">
     <link rel="stylesheet" href="css/index.css">
     <script src="JS/script.js" defer></script>
     <title>Pokéloja</title>
 </head>
 <body>
+    <div class="open-cart"></div>
     <div class="grid">
         <header class="content">
             <section class="cabecalho">
                 <div class="top-left">
                     <a href="#">PokéLoja</a>
-                    <form>
+                    <form class="search">
                         <input type="text" placeholder="Encontre seu pokémon">
                         <span>
                             <i class="fas fa-search"></i>
@@ -176,43 +179,41 @@
                 <p>2021 PokéLoja 2021. Todos os direitos reservados</p>
             </div>
         </footer>
-        <section class="carrinho">
-            <header class="top-car">
+    </div>
+    <section class="carrinho">
+        <header class="top-car">
+            <div>
+                <img src="images/pokebola2.png" alt="Pokebola">
+                <h3>PokéLoja</h3>
+            </div>
+            <h3 id='fechar-carrinho'>x</h3>
+        </header>
+        <main class="carrinho-center">
+            <h3>Carrinho</h3>
+            <div class="title-car">
+                <h4>Quantidade</h4>
+                <h4>Valor</h4>
+            </div>
+            <div class="dados-car">
+                <img src="images/Pikachu.png" alt="Pikachu">
+                <h4>Pikachu</h4>
                 <div>
-                    <img src="images/pokebola2.png" alt="Pokebola">
-                    <h3>PokéLoja</h3>
+                    <p>1</p>
+                    <button>Excluir</button>
                 </div>
-                <h3 id='fechar-carrinho'>x</h3>
-            </header>
-            <main class="carrinho-center">
-                <h3>Carrinho</h3>
-                <div class="title-car">
-                    <h4>Quantidade</h4>
-                    <h4>Valor</h4>
-                </div>
-                <div class="dados-car">
-                    <img src="images/Pikachu.png" alt="Pikachu">
-                    <h4>Pikachu</h4>
-                    <div>
-                        <p>1</p>
-                        <button>Excluir</button>
-                    </div>
+                <p>R$ 100,00</p>
+            </div>
+            <div class="down-car">
+                <div class="total-car">
+                    <p><span>Total</span>(1 item)</p>
                     <p>R$ 100,00</p>
                 </div>
-                <div class="down-car">
-                    <div class="total-car">
-                        <p><span>Total</span>(1 item)</p>
-                        <p>R$ 100,00</p>
-                    </div>
-                    <div class="total-car">
-                        <button id="continuar-comprando">Continuar Comprando</button>
-                        <button>Continuar</button>
-                    </div>
+                <div class="total-car">
+                    <button id="continuar-comprando">Continuar Comprando</button>
+                    <button>Continuar</button>
                 </div>
-            </main>
-
-        </section>
-    </div>
-    <script src="https://kit.fontawesome.com/7d3f6f7eb7.js" crossorigin="anonymous"></script>
+            </div>
+        </main>
+    </section>
 </body>
 </html>

@@ -77,6 +77,7 @@ const listaPokemons = (pokemonsApi) => {
     // Executando função para trocar de página
     mudarPage(); 
     
+    // Executando função para saber quantidade de páginas
     countPage();
 
     // Executando a função para abrir o carrinho
@@ -140,6 +141,8 @@ const abrirCarrinho = () => {
         
         // Adicionando uma class no body
         document.body.className = "carrinho-aberto";
+        /*const DivForaCarrinho = document.createElement('.open-cart')
+        document.body.appendChild(DivForaCarrinho);*/
     })
 
     // Selecionando todas as div que contenha o id buy
@@ -150,8 +153,7 @@ const abrirCarrinho = () => {
         button.addEventListener('click', function(event) {
         
             event.preventDefault();
-        
-            document.body.className = "carrinho-aberto";       
+            document.body.className = "carrinho-aberto"; 
         });
     })
 }
@@ -184,6 +186,15 @@ const fecharCarrinho = () => {
     continuarComprando.addEventListener('click', function(event) {
         event.preventDefault();
 
+        document.body.className = '';
+    })
+    
+    
+    const breakCar = document.querySelector(".open-cart")
+
+    // Fechando carrinho quando clicar fora do carrinho
+    breakCar.addEventListener('click', function(event) {
+        //event.preventDefault();
         document.body.className = '';
     })
  }
